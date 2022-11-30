@@ -1,0 +1,83 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Borders and paddings are not longer added to the total width or height specified for a box */
+}
+
+body { /* All these will be inherited */
+    /* best practice specifying everything related to fonts in the body selector */
+    font-family: "Lato", sans-serif; /* imported in index.html */
+    font-weight: 400;
+    font-size: 16px; /* TODO: Fix later */
+    line-height: 1.7; /* 1.7 time bigger than the predefined line-height */
+    color: #777;
+    padding: 30px; /* padding is not inherited */
+}
+
+.header {
+    height: 95vh; /* 95% of the viewport height */
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(126, 213, 111, 0.8),
+          rgb(40, 180, 133, 08)),
+        url(../img/hero.jpg); /* add the gradient before, thus the image acquires the filter */
+    background-size: cover; /* scales the image while preserving its ratio */
+    background-position: top; /* the top of the image is the top of the container */
+    clip-path: polygon(
+        /* vertex points are relative to the top left of the box */
+        0 0, /* stay in top left*/
+         100% 0, /* top right: 100% element box width */ 
+          100% 75vh,
+          0 100%); /* specifies a polygon in which the image will be visible */
+    /* the polygon vertexes are specified clock wise */
+    position: relative; /* relative allows to position absolute elements inside */
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    /* jonas recommend using mainly the height for sizing */
+    height: 35px; /* width scales accordingly */
+}
+
+.text-box {
+    /* let's center with absolute */
+    position: absolute;
+    top: 40%; /* originally 50% to center completely but for styling we will use this value */
+    left: 50%;
+    /* until here the top left corner of the box will be in the center of the parent, but that's not what we want */
+    /* background-color: red; */
+    transform: translate(-50%, -50%) /* (x, y) the values here are relative not to the parent but the element itself */
+}
+
+.heading-primary {
+    color: #fff; /* rgb white */
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+    display: block; /* block elements occupied the entire width available */
+    font-size: 60px;
+    font-weight: 400; /* h1 has the higher fontweight */
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+}
